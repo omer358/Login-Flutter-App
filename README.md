@@ -1,6 +1,6 @@
 # login_app
 
-A new Flutter project.
+A login App with a simple interface intended to practic flutter framework.
 
 ## Getting Started
 
