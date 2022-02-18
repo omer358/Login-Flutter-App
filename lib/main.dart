@@ -31,50 +31,51 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Login App"),
-      ),
-      body: ListView(
-        padding: const EdgeInsets.fromLTRB(16.0, 8.0, 8.0, 8.0),
-        children: [
-          const SizedBox(height: 32.0),
-          Column(
-            children: [
-              Center(
-                child: Image.asset(
-                  'assets/images/login.png',
-                  width: 100,
-                  height: 100,
-                  fit: BoxFit.contain,
+      body: SafeArea(
+        child: ListView(
+          padding: const EdgeInsets.symmetric(horizontal: 24.0),
+          children: [
+            const SizedBox(height: 64.0),
+            Column(
+              children: [
+                Center(
+                  child: Image.asset(
+                    'assets/images/login.png',
+                    width: 100,
+                    height: 100,
+                    fit: BoxFit.contain,
+                  ),
                 ),
-              ),
-              Center(
-                child: Text(
-                  "Login",
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headline4,
+                Center(
+                  child: Text(
+                    "Login",
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.headline4,
+                  ),
                 ),
+              ],
+            ),
+            const SizedBox(height: 80),
+            const TextField(
+              decoration: InputDecoration(
+                prefixIcon: Icon(Icons.person),
+                filled: true,
+                labelText: "username",
               ),
-            ],
-          ),
-          const SizedBox(height: 80),
-          const TextField(
-            decoration: InputDecoration(
-              filled: true,
-              labelText: "username",
             ),
-          ),
-          const SizedBox(
-            height: 12.0,
-          ),
-          const TextField(
-            decoration: InputDecoration(
-              labelText: "password",
-              filled: true,
+            const SizedBox(
+              height: 12.0,
             ),
-            obscureText: true,
-          )
-        ],
+            const TextField(
+              decoration: InputDecoration(
+                prefixIcon: Icon(Icons.password),
+                labelText: "password",
+                filled: true,
+              ),
+              obscureText: true,
+            )
+          ],
+        ),
       ),
     );
   }
