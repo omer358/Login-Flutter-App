@@ -28,6 +28,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  bool _IsVisiable = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,14 +68,19 @@ class _MyHomePageState extends State<MyHomePage> {
             const SizedBox(
               height: 12.0,
             ),
-            const TextField(
+            TextField(
               decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.vpn_key),
+                border: const OutlineInputBorder(),
+                prefixIcon: const Icon(Icons.vpn_key),
+                suffixIcon: IconButton(
+                    icon: (_IsVisiable
+                        ? const Icon(Icons.visibility_off)
+                        : const Icon(Icons.visibility)),
+                    onPressed: _togglePasswordVisibilty),
                 labelText: "password",
                 filled: true,
               ),
-              obscureText: true,
+              obscureText: !_IsVisiable,
             ),
             ButtonBar(
               children: [
@@ -89,5 +95,15 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
     );
+  }
+
+  void _togglePasswordVisibilty() {
+    setState(() {
+      if (_IsVisiable) {
+        _IsVisiable = false;
+      } else {
+        _IsVisiable = true;
+      }
+    });
   }
 }
