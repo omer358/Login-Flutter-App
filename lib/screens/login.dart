@@ -1,18 +1,5 @@
 import 'package:flutter/material.dart';
-
-class LoginApp extends StatelessWidget {
-  const LoginApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Login App",
-      theme: ThemeData(primarySwatch: Colors.teal),
-      darkTheme: ThemeData.dark(),
-      home: const LoginRoute(),
-    );
-  }
-}
+import 'package:login_app/screens/home.dart';
 
 class LoginRoute extends StatefulWidget {
   const LoginRoute({Key? key}) : super(key: key);
@@ -81,7 +68,8 @@ class _LoginRouteState extends State<LoginRoute> {
                 ElevatedButton(
                     child: const Text("Login"),
                     onPressed: () {
-                      print('Hello world');
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => const Home()));
                     }),
               ],
             )
