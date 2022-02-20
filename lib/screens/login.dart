@@ -43,8 +43,8 @@ class _LoginRouteState extends State<LoginRoute> {
               ],
             ),
             const SizedBox(height: 80),
-            const TextField(          
-              decoration: InputDecoration(
+             TextFormField(          
+              decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 prefixIcon: Icon(Icons.person),
                 filled: true,
@@ -55,7 +55,7 @@ class _LoginRouteState extends State<LoginRoute> {
             const SizedBox(
               height: 12.0,
             ),
-            TextField(
+            TextFormField(
               decoration: InputDecoration(
                 border: const OutlineInputBorder(),
                 prefixIcon: const Icon(Icons.vpn_key),
