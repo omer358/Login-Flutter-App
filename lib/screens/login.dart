@@ -15,6 +15,8 @@ class _LoginRouteState extends State<LoginRoute> {
   final RoundedLoadingButtonController _btnController =
       RoundedLoadingButtonController();
   bool _IsVisiable = false;
+  TextEditingController usernameController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +45,8 @@ class _LoginRouteState extends State<LoginRoute> {
               ],
             ),
             const SizedBox(height: 80),
-             TextFormField(          
+            TextFormField(
+              controller: usernameController,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 prefixIcon: Icon(Icons.person),
@@ -56,6 +59,7 @@ class _LoginRouteState extends State<LoginRoute> {
               height: 12.0,
             ),
             TextFormField(
+              controller: passwordController,
               decoration: InputDecoration(
                 border: const OutlineInputBorder(),
                 prefixIcon: const Icon(Icons.vpn_key),
@@ -93,6 +97,13 @@ class _LoginRouteState extends State<LoginRoute> {
     );
   }
 
+  @override
+  void dispose() {
+    usernameController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
   void _togglePasswordVisibilty() {
     setState(() {
       if (_IsVisiable) {
@@ -103,16 +114,31 @@ class _LoginRouteState extends State<LoginRoute> {
     });
   }
 
-  void _loginAction() async {
-    Timer(const Duration(seconds: 3), () {
-      _btnController.success();
+  @override
+  void initState() {
+    usernameController.addListener(() {
       _btnController.reset();
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const Home(),
-        ),
-      );
+    });
+    super.initState();
+  }
+
+  void _loginAction() async {
+    Timer(const Duration(seconds: 2), () {
+      if (usernameController.text == "omer358" ||
+          passwordController.text == '1234') {
+        _btnController.success();
+        _btnController.reset();
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const Home(),
+          ),
+        );
+        usernameController.clear();
+        passwordController.clear();
+      } else {
+        _btnController.error();
+      }
     });
   }
 }
