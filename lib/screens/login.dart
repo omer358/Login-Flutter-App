@@ -47,9 +47,11 @@ class _LoginRouteState extends State<LoginRoute> {
             const SizedBox(height: 80),
             TextFormField(
               controller: usernameController,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.person),
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(25.0),
+                ),
+                prefixIcon: const Icon(Icons.person),
                 filled: true,
                 labelText: "username",
               ),
@@ -61,7 +63,9 @@ class _LoginRouteState extends State<LoginRoute> {
             TextFormField(
               controller: passwordController,
               decoration: InputDecoration(
-                border: const OutlineInputBorder(),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(25.0),
+                ),
                 prefixIcon: const Icon(Icons.vpn_key),
                 suffixIcon: IconButton(
                     icon: (_IsVisiable
