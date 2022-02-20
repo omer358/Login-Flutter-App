@@ -43,13 +43,14 @@ class _LoginRouteState extends State<LoginRoute> {
               ],
             ),
             const SizedBox(height: 80),
-            const TextField(
+            const TextField(          
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 prefixIcon: Icon(Icons.person),
                 filled: true,
                 labelText: "username",
               ),
+              textInputAction: TextInputAction.next,
             ),
             const SizedBox(
               height: 12.0,
@@ -67,6 +68,7 @@ class _LoginRouteState extends State<LoginRoute> {
                 filled: true,
               ),
               obscureText: !_IsVisiable,
+              textInputAction: TextInputAction.done,
             ),
             ButtonBar(
               children: [
