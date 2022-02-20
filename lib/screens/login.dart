@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:login_app/screens/home.dart';
+import 'package:rounded_loading_button/rounded_loading_button.dart';
 
 class LoginRoute extends StatefulWidget {
   const LoginRoute({Key? key}) : super(key: key);
@@ -9,6 +12,8 @@ class LoginRoute extends StatefulWidget {
 }
 
 class _LoginRouteState extends State<LoginRoute> {
+  final RoundedLoadingButtonController _btnController =
+      RoundedLoadingButtonController();
   bool _IsVisiable = false;
   @override
   Widget build(BuildContext context) {
@@ -65,12 +70,19 @@ class _LoginRouteState extends State<LoginRoute> {
             ),
             ButtonBar(
               children: [
-                ElevatedButton(
-                    child: const Text("Login"),
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => const Home()));
-                    }),
+                RoundedLoadingButton(
+                  child: const Text(
+                    'Login',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                  elevation: 4,
+                  controller: _btnController,
+                  onPressed: _loginAction,
+                  color: Colors.teal,
+                  width: 100.0,
+                ),
               ],
             )
           ],
@@ -86,6 +98,19 @@ class _LoginRouteState extends State<LoginRoute> {
       } else {
         _IsVisiable = true;
       }
+    });
+  }
+
+  void _loginAction() async {
+    Timer(const Duration(seconds: 3), () {
+      _btnController.success();
+      _btnController.reset();
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const Home(),
+        ),
+      );
     });
   }
 }
