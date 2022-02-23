@@ -1,15 +1,36 @@
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+  Home({Key? key}) : super(key: key);
 
   @override
   State<Home> createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
+  int __selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
+    const List<Widget> _pages = <Widget>[
+      Icon(
+        Icons.home,
+        size: 80,
+      ),
+      Icon(
+        Icons.people_alt,
+        size: 80,
+      ),
+      Icon(
+        Icons.notifications,
+        size: 80,
+      ),
+      Icon(
+        Icons.chat,
+        size: 80,
+      ),
+    ];
+
     return Scaffold(
       appBar: AppBar(
         actions: <Widget>[
@@ -29,6 +50,9 @@ class _HomeState extends State<Home> {
         title: const Text('Second Route'),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        elevation: 8.0,
+        currentIndex: __selectedIndex,
+        onTap: _onItemTapped,
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -50,13 +74,14 @@ class _HomeState extends State<Home> {
         ],
       ),
       body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: const Text('Go back!'),
-        ),
+        child: _pages.elementAt(__selectedIndex),
       ),
     );
+  }
+
+  void _onItemTapped(int index) {
+    setState(() {
+      __selectedIndex = index;
+    });
   }
 }
