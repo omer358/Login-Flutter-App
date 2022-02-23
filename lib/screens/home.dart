@@ -7,6 +7,20 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: <Widget>[
+          CircleAvatar(
+            radius: 20,
+            backgroundColor: Colors.white,
+            child: IconButton(
+                color: Colors.black,
+                padding: const EdgeInsets.all(8),
+                iconSize: 20,
+                icon: const Icon(Icons.person),
+                onPressed: () {
+                  // do something
+                }),
+          ),
+        ],
         title: const Text('Second Route'),
       ),
       bottomNavigationBar: BottomNavigationBar(
