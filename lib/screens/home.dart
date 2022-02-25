@@ -35,12 +35,11 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         actions: <Widget>[
           CircleAvatar(
-            radius: 20,
+            radius: 18,
             backgroundColor: Colors.white,
             child: IconButton(
                 color: Colors.black,
-                padding: const EdgeInsets.all(6),
-                iconSize: 30,
+                padding: const EdgeInsets.all(5),
                 icon: Image.asset('assets/images/login.png'),
                 onPressed: () {
                   // do something
