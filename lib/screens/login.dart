@@ -128,21 +128,16 @@ class _LoginRouteState extends State<LoginRoute> {
 
   void _loginAction() async {
     Timer(const Duration(seconds: 2), () {
-      if (usernameController.text == "omer358" ||
-          passwordController.text == '1234') {
-        _btnController.success();
-        _btnController.reset();
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) =>  Home(),
-          ),
-        );
-        usernameController.clear();
-        passwordController.clear();
-      } else {
-        _btnController.error();
-      }
+      _btnController.success();
+      _btnController.reset();
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => Home(),
+        ),
+      );
+      usernameController.clear();
+      passwordController.clear();
     });
   }
 }
