@@ -47,21 +47,38 @@ class _HomeState extends State<Home> {
                 }),
           ),
         ],
-        title: const Text('Second Route'),
+        title: const Text('Home'),
       ),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(color: Colors.teal),
-              child: CircleAvatar(
-                backgroundColor: Colors.black,
-                radius: 120,
-                child: CircleAvatar(
-                  radius: 110,
-                  backgroundImage: AssetImage('assets/images/login.png'),
-                ),
+            DrawerHeader(
+              decoration: const BoxDecoration(color: Colors.teal),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  const CircleAvatar(
+                    backgroundColor: Colors.white,
+                    radius: 35,
+                    child: CircleAvatar(
+                      radius: 33,
+                      backgroundImage: AssetImage('assets/images/login.png'),
+                    ),
+                  ),
+                  Container(
+                      padding: const EdgeInsets.fromLTRB(8, 0, 0, 8),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text("Omer Maki",
+                              style: Theme.of(context).textTheme.headline6),
+                          Text("omer358",
+                              style: Theme.of(context).textTheme.subtitle2),
+                        ],
+                      ))
+                ],
               ),
             ),
             ListTile(
