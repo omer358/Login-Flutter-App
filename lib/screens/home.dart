@@ -65,14 +65,17 @@ class _HomeState extends State<Home> {
               ),
             ),
             ListTile(
+              leading: const Icon(Icons.person),
               title: const Text("profile"),
               onTap: () {},
             ),
             ListTile(
+              leading: const Icon(Icons.settings),
               title: const Text("Settings"),
               onTap: () {},
             ),
             ListTile(
+              leading: const Icon(Icons.logout),
               title: const Text("Logout"),
               onTap: () {},
             )
