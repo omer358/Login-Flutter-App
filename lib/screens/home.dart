@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_app/screens/notifications.dart';
 
 class Home extends StatefulWidget {
   Home({Key? key}) : super(key: key);
@@ -34,6 +35,17 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         actions: <Widget>[
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const NotificationsRoute(),
+                ),
+              );
+            },
+            icon: const Icon(Icons.notifications),
+          ),
           CircleAvatar(
             radius: 18,
             backgroundColor: Colors.white,
