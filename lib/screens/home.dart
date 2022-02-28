@@ -19,15 +19,18 @@ class _HomeState extends State<Home> {
         size: 80,
       ),
       Icon(
-        Icons.people_alt,
+        Icons.explore,
+        color: Colors.teal,
         size: 80,
       ),
       Icon(
-        Icons.notifications,
+        Icons.people_alt,
+        color: Colors.teal,
         size: 80,
       ),
       Icon(
         Icons.chat,
+        color: Colors.teal,
         size: 80,
       ),
     ];
